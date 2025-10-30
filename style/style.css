@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #803c3c;
+    color: #333;
+    line-height: 1.6;
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 0px 0px;
+    min-width: 100%;
+
+    & img {
+        width: 70px;
+        height: 70px;
+        padding: 0;
+    }
+
+    & .logo {
+        display: flex;
+        flex-direction: row;
+        margin-right: 20px; 
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        width: 500px;
+
+        & .texto-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            width: 250px;
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
+            text-align: left;
+
+            & h1 {
+                font-size: 28px;
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(to right, #dc3a21, #eda934);
+                display: inline-block;
+                background-clip: text;
+                color: transparent;
+                font-family: "Playfair Display", serif;
+            }
+
+            & h2 {
+                font-size: 15px;
+                color: #4c4c4c;
+                margin: 0;
+                padding: 0;
+                font-weight: normal;
+            }
+        }
+    }
+
+    & .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 15px;
+    }
+}
+
+a {
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+a:hover {
+    color: #4c4c4c;
+}
+
+header {
+    background: radial-gradient(circle at center, #ffbeb5, #fdada0, #feb097, #fdd9c0);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+header .titulo1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 38px;
+    font-family: "Playfair Display", serif;
+    padding-bottom: 30px;
+    padding-top: 120px;
+    line-height: 1.2;
+
+    & h1 {
+        background: linear-gradient(to right, #ff0000, #edbb25);
+        display: inline-block;
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+.subtitulo1 h2 {
+    color: #535353;
+    padding-bottom: 30px;
+    font-weight: normal;
+}
+
+.subtitulo2 h3 {
+    color: #535353;
+    padding-bottom: 30px;
+    font-weight: normal;
+}
+
+header .botao-servicos {
+    padding-bottom: 60px;
+
+    & button {
+        color: #f4f4f4;
+        background: linear-gradient(to right, #e90000, #fc5320);
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 20px;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    & i {
+        margin-left: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    & button:hover {
+        opacity: 0.9;
+        cursor: pointer;
+    }
+
+    & button:hover i {
+        transform: translateX(5px);
+    }
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    background-color: #fff7f7;
+    align-items: center;
+}
+
+section .titulo2 {
+    font-size: x-large;
+
+    & h1 {
+        background: linear-gradient(to right, #ff0000, #edbb25);
+        display: inline-block;
+        background-clip: text;
+        color: transparent;
+        font-family: "Playfair Display", serif;
+    }
+
+}
+
+section .subtitulo2 {
+    padding-bottom: 20px;
+}
+
+section .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* centraliza na horizontal */
+    align-items: center;     /* centraliza na vertical, se tiver altura definida */
+    gap: 30px;
+    margin-top: 20px;
+    width: 100%;
+    
+
+    & .card {
+        text-align: justify;
+        background-color: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 1rem;
+        padding: 25px;
+        width: 500px;
+        height: 280px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: large;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        & h3 {
+            margin-bottom: 15px;
+            font-family: "Playfair Display", serif;
+            font-size: xx-large;
+            color: #000000;
+            transition: color 0.3s ease-in-out;
+        }
+
+}
+
+        & .card:hover {
+            border: 2px solid #ff62008a;
+            box-shadow: 2px 10px 20px rgba(8, 8, 8, 0.168);
+            transform: translateY(-8px);
+        }
+
+        & .card:hover h3 {
+            color: #ff4500;
+        }
+}
+
+section .sobre {
+    margin-top: 90px;
+    text-align: center;
+}
+
+.painel-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 120px;
+    padding: 20px 20px;
+    background: #fff5f0; /* cor de fundo leve */
+    text-align: center;
+    flex-wrap: wrap; /* responsivo */
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.card-info .icone {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, #ff4500, #ffa500);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover suave */
+.card-info:hover .icone {
+    transform: scale(1.15);
+    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.4);
+}
+
+.card-info h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.2rem;
+    color: #2e2e2e;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.card-info p {
+    font-size: 0.95rem;
+    color: #5c5c5c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .painel-info {
+    gap: 30px;
+  }
+
+  .icone {
+    width: 70px;
+    height: 70px;
+    font-size: 26px;
+  }
+}
+
+
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+    }
+
+    nav .logo {
+        flex-direction: row;
+        width: 100%;
+    }
+
+    nav .texto-logo h1 {
+        font-size: 15px;
+    }
+
+    nav .texto-logo h2 {
+        font-size: 8px;
+    }
+
+    nav .menu {
+        display: none;
+    }
+
+    nav img {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .texto-logo h1 {
+        font-size: 20px;
+    }
+
+    nav .texto-logo h2 {
+        font-size: 12px;
+    }
+
+    nav .menu a {
+        font-size: 14px;
+    }
+}
+
+.card .icone {
+  width: 55px;
+  height: 55px;
+  background: linear-gradient(135deg, #ff0000, #ff7b00);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #fff;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ícone com animação no hover */
+.card:hover .icone {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 80, 0, 0.5);
+}
+
+.mensagem {
+    background: linear-gradient(135deg, #ff000041, #ff7b0056);
+    padding: 40px 80px;
+    margin-top: 40px;
+    border-radius: 15px;
+    border: 2px solid #e838385d;
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.166);
+    text-align: center;
+    font-family: "Playfair Display", serif;
+}
+
+.mensagem-texto h2 {
+    color: #000;
+    font-size: 28px;
+    font-weight: normal;
+}
