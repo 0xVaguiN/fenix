@@ -376,3 +376,59 @@ section .sobre {
     font-size: 28px;
     font-weight: normal;
 }
+
+.contato {
+    background: radial-gradient(circle at center, #ffbeb5, #fdada0, #feb097, #fdd9c0);
+    display: flex;
+    padding-bottom: 60px;
+    align-items: center;
+    justify-content: center;
+
+    & .botao-wpp {
+        padding: 10px 50px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    & .botao-face {
+        margin-left: 20px;
+        padding: 10px 50px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    & .botao-insta {
+        margin-left: 20px;
+        padding: 10px 50px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    & i {
+        padding-right: 20px;
+    }
+
+    & button {
+        color: #f4f4f4;
+        background: #36363681;
+        border: 1px solid#00000069;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 22px;
+    }
+
+    & .botao-wpp:hover {
+        box-shadow: 2px 5px 10px #1010109b;
+        transform: translateX(-5px) translateY(-2px);
+        background: #449d33a6;
+    }
+
+    & .botao-face:hover {
+        box-shadow: 2px 5px 10px #1010109b;
+        transform: translateX(-5px) translateY(-2px);
+        background: #334c9da6;
+    }
+
+    & .botao-insta:hover {
+        box-shadow: 2px 5px 10px #1010109b;
+        transform: translateX(-5px) translateY(-2px);
+        background: #972538a6;
+    }
+}
