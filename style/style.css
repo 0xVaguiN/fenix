@@ -8,9 +8,11 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #803c3c;
+    background-color: #fff0f0;
     color: #333;
     line-height: 1.6;
+    padding-top: 80px;
+    width: 100vw;
 }
 
 nav {
@@ -19,72 +21,252 @@ nav {
     justify-content: space-between;
     background-color: #ffffff;
     padding: 0px 0px;
-    min-width: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 999;
+}
 
-    & img {
-        width: 70px;
-        height: 70px;
-        padding: 0;
-    }
+nav.scrolled {
+  background: rgba(255, 255, 255, 0.7); /* sem mudar cor */
+  backdrop-filter: blur(10px); /* efeito vidro */
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+}
 
-    & .logo {
-        display: flex;
-        flex-direction: row;
-        margin-right: 20px; 
+.logo {
+    display: flex;
+    flex-direction: row;
+    margin-right: 0px; 
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    width: auto;
+}
+
+.texto-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: auto;
+    margin: 0;
+    padding: 15px;
+    line-height: 1.2;
+    text-align: left;
+
+    & h1 {
+        font-size: 28px;
         margin: 0;
         padding: 0;
-        align-items: center;
-        width: 500px;
-
-        & .texto-logo {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            width: 250px;
-            margin: 0;
-            padding: 0;
-            line-height: 1.2;
-            text-align: left;
-
-            & h1 {
-                font-size: 28px;
-                margin: 0;
-                padding: 0;
-                background: linear-gradient(to right, #dc3a21, #eda934);
-                display: inline-block;
-                background-clip: text;
-                color: transparent;
-                font-family: "Playfair Display", serif;
-            }
-
-            & h2 {
-                font-size: 15px;
-                color: #4c4c4c;
-                margin: 0;
-                padding: 0;
-                font-weight: normal;
-            }
-        }
+        background: linear-gradient(to right, #dc3a21, #eda934);
+        display: inline-block;
+        background-clip: text;
+        color: transparent;
+        font-family: "Playfair Display", serif;
     }
 
-    & .menu {
+    & h2 {
+        font-size: 15px;
+        color: #4c4c4c;
+        margin: 0;
+        padding: 0;
+        font-weight: normal;
+    }
+}
+
+.menu {
         display: flex;
         align-items: center;
         gap: 20px;
         padding-left: 20px;
         padding-right: 20px;
         font-size: 15px;
-    }
+}
+
+.menu-toggle {
+  width: 30px;
+  height: 22px;
+  display: none; /* Escondido por padrão no desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1001; /* acima do menu */
+  margin-right: 20px;
+}
+
+/* Linhas do hambúrguer */
+.menu-toggle span {
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #000;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Quando ativo (vira X) */
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Menu escondido no mobile */
+@media (max-width: 768px) {
+  /* 1.1 Header: Diminuir tamanho */
+  header {
+    padding: 5px;
+  }
+  .titulo1 {
+    font-size: 24px; /* Reduzir o tamanho do título principal */
+    padding-top: 30px;
+    padding-bottom: 15px;
+  }
+  .subtitulo1 h2 {
+    padding-bottom: 15px;
+    font-size: 1.1em;
+  }
+  .subtitulo2 h3 {
+    padding-bottom: 15px;
+    font-size: 1em;
+  }
+  .botao-servicos {
+    padding-bottom: 30px;
+  }
+  .botao-servicos button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  /* 1.3 Cards: Mesmo tamanho e um abaixo do outro */
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cards .card {
+    width: 90%; /* Ocupar a maior parte da largura */
+    max-width: 400px; /* Limitar o tamanho máximo */
+    height: auto; /* Altura automática para se ajustar ao conteúdo */
+    min-height: 200px; /* Garantir uma altura mínima */
+    padding: 20px;
+    font-size: medium;
+  }
+  .cards .card h3 {
+    font-size: x-large;
+  }
+
+  /* 1.4 Sobre: Igual, apenas menor */
+  .sobre {
+    margin-top: 50px;
+  }
+  .sobre .subtitulo2 h3 {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  /* 1.5 Mensagem: Mesmo formato, apenas menor */
+  .mensagem {
+    padding: 20px 40px;
+    margin-top: 30px;
+  }
+  .mensagem-texto h2 {
+    font-size: 18px;
+  }
+
+  /* 1.6 Contato: Botões um abaixo do outro */
+  .fontes-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 18px;
+  }
+  .fontes-contato button {
+    width: 100%;
+    margin-left: 0 !important; /* Remover margens laterais */
+    padding: 10px 20px;
+  }
+  .fontes-contato .botao-face {
+    margin-left: 0;
+  }
+  .fontes-contato .botao-insta {
+    margin-left: 0;
+  }
+
+  /* 1.7 Footer: Tirar o menuzinho */
+  .footer-menu .menu {
+    display: none; /* Ocultar o menu no footer */
+  }
+  .footer-menu {
+    justify-content: center; /* Centralizar o logo no footer */
+  }
+
+  /* 1.2 Menu Hamburger na nav: Garantir que o menu principal seja ocultado e o toggle exibido */
+  .menu {
+    display: none; /* O menu principal deve ser escondido por padrão no mobile */
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    width: 220px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    transition: 0.3s ease;
+  }
+
+  nav .menu.open {
+    display: flex; /* Exibir quando a classe 'open' for adicionada pelo JS */
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: flex; /* Exibir o ícone do hamburger */
+    margin-right: 20px;
+  }
+
+  /* Outros ajustes da nav */
+  nav {
+    padding: 0 10px;
+  }
+  nav .logo {
+    width: auto;
+  }
+  nav img {
+    width: 50px;
+    height: 50px;
+  }
+  .texto-logo {
+    padding: 10px;
+  }
+  .texto-logo h1 {
+    font-size: 20px;
+  }
+  .texto-logo h2/* As regras de responsividade para nav/menu/menu-toggle foram movidas para a media query principal (max-width: 768px) acima. */
+  mg {
+    width: 70px;
+    height: 70px;
+    padding: 0;
+}
+}
+
+img {
+    width: 70px;
+    height: 70px;
+    padding: 0;
 }
 
 a {
     color: #000000;
     text-decoration: none;
     transition: all 0.2s;
-}
 
-a:hover {
-    color: #4c4c4c;
+    &:hover {
+        color: #4c4c4c;
+    }
 }
 
 header {
@@ -95,14 +277,14 @@ header {
     text-align: center;
 }
 
-header .titulo1 {
+.titulo1 {
     display: flex;
     flex-direction: column;
     text-align: center;
     font-size: 38px;
     font-family: "Playfair Display", serif;
     padding-bottom: 30px;
-    padding-top: 120px;
+    padding-top: 60px;
     line-height: 1.2;
 
     & h1 {
@@ -125,7 +307,7 @@ header .titulo1 {
     font-weight: normal;
 }
 
-header .botao-servicos {
+.botao-servicos {
     padding-bottom: 60px;
 
     & button {
@@ -137,24 +319,24 @@ header .botao-servicos {
         font-size: 20px;
         transition: all 0.3s ease-in-out;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+
+        &:hover i {
+        transform: translateX(5px);
     }
+}
 
     & i {
         margin-left: 10px;
         transition: transform 0.3s ease-in-out;
     }
-
-    & button:hover {
-        opacity: 0.9;
-        cursor: pointer;
-    }
-
-    & button:hover i {
-        transform: translateX(5px);
-    }
 }
 
-section {
+.conteudo-principal {
     display: flex;
     flex-direction: column;
     padding: 50px;
@@ -162,8 +344,9 @@ section {
     align-items: center;
 }
 
-section .titulo2 {
+.titulo2 {
     font-size: x-large;
+    padding-top: 50px;
 
     & h1 {
         background: linear-gradient(to right, #ff0000, #edbb25);
@@ -175,11 +358,11 @@ section .titulo2 {
 
 }
 
-section .subtitulo2 {
-    padding-bottom: 20px;
+.subtitulo2 {
+    padding-bottom: 10px;
 }
 
-section .cards {
+.cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* centraliza na horizontal */
@@ -210,20 +393,38 @@ section .cards {
             transition: color 0.3s ease-in-out;
         }
 
-}
-
-        & .card:hover {
+        &:hover {
             border: 2px solid #ff62008a;
             box-shadow: 2px 10px 20px rgba(8, 8, 8, 0.168);
             transform: translateY(-8px);
         }
 
-        & .card:hover h3 {
+        &:hover h3 {
             color: #ff4500;
         }
+
+        .icone {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #ff0000, #ff7b00);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            & :hover {
+                transform: scale(1.1);
+                box-shadow: 0 4px 12px rgba(255, 80, 0, 0.5);
+            }
+        }
+    }
 }
 
-section .sobre {
+.sobre {
     margin-top: 90px;
     text-align: center;
 }
@@ -246,118 +447,38 @@ section .sobre {
     align-items: center;
     max-width: 250px;
     transition: transform 0.3s ease;
-}
 
-.card-info .icone {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #ff4500, #ffa500);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    color: #fff;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover suave */
-.card-info:hover .icone {
-    transform: scale(1.15);
-    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.4);
-}
-
-.card-info h3 {
-    font-family: "Playfair Display", serif;
-    font-size: 1.2rem;
-    color: #2e2e2e;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.card-info p {
-    font-size: 0.95rem;
-    color: #5c5c5c;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .painel-info {
-    gap: 30px;
-  }
-
-  .icone {
-    width: 70px;
-    height: 70px;
-    font-size: 26px;
-  }
-}
-
-
-
-@media (max-width: 768px) {
-    nav {
-        flex-direction: row;
-        align-items: center;
-        text-align: center;
-    }
-
-    nav .logo {
-        flex-direction: row;
-        width: 100%;
-    }
-
-    nav .texto-logo h1 {
-        font-size: 15px;
-    }
-
-    nav .texto-logo h2 {
-        font-size: 8px;
-    }
-
-    nav .menu {
-        display: none;
-    }
-
-    nav img {
+    & .icone {
         width: 70px;
         height: 70px;
+        background: linear-gradient(135deg, #ff4500, #ffa500);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        color: #fff;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            transform: scale(1.15);
+            box-shadow: 0 6px 15px rgba(255, 69, 0, 0.4);
+        }
     }
-}
 
-@media (max-width: 480px) {
-    nav .texto-logo h1 {
-        font-size: 20px;
+    & h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.2rem;
+        color: #2e2e2e;
+        font-weight: bold;
+        margin-bottom: 8px;
     }
 
-    nav .texto-logo h2 {
-        font-size: 12px;
+    & p {
+        font-size: 0.95rem;
+        color: #5c5c5c;
     }
-
-    nav .menu a {
-        font-size: 14px;
-    }
-}
-
-.card .icone {
-  width: 55px;
-  height: 55px;
-  background: linear-gradient(135deg, #ff0000, #ff7b00);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  color: #fff;
-  margin-bottom: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Ícone com animação no hover */
-.card:hover .icone {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(255, 80, 0, 0.5);
 }
 
 .mensagem {
@@ -383,27 +504,19 @@ section .sobre {
     padding-bottom: 60px;
     align-items: center;
     justify-content: center;
-
-    & .botao-wpp {
-        padding: 10px 50px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    & .botao-face {
-        margin-left: 20px;
-        padding: 10px 50px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    & .botao-insta {
-        margin-left: 20px;
-        padding: 10px 50px;
-        transition: all 0.3s ease-in-out;
-    }
+    flex-direction: column;
 
     & i {
         padding-right: 20px;
     }
+}
+
+.fontes-contato {
+    padding: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex; /* Adicionar display flex para desktop */
+    gap: 20px; /* Espaçamento entre os botões no desktop */
 
     & button {
         color: #f4f4f4;
@@ -414,21 +527,113 @@ section .sobre {
         font-size: 22px;
     }
 
-    & .botao-wpp:hover {
-        box-shadow: 2px 5px 10px #1010109b;
-        transform: translateX(-5px) translateY(-2px);
-        background: #449d33a6;
+    & .botao-wpp {
+        padding: 10px 50px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 2px 5px 10px #1010109b;
+            transform: translateX(-5px) translateY(-2px);
+            background: #449d33a6;
+        }
     }
 
-    & .botao-face:hover {
-        box-shadow: 2px 5px 10px #1010109b;
-        transform: translateX(-5px) translateY(-2px);
-        background: #334c9da6;
+    & .botao-face {
+        /* margin-left: 20px; Removido para usar gap */
+        padding: 10px 50px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 2px 5px 10px #1010109b;
+            transform: translateX(-5px) translateY(-2px);
+            background: #334c9da6;
+        }
     }
 
-    & .botao-insta:hover {
-        box-shadow: 2px 5px 10px #1010109b;
-        transform: translateX(-5px) translateY(-2px);
-        background: #972538a6;
+    & .botao-insta {
+        /* margin-left: 20px; Removido para usar gap */
+        padding: 10px 50px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+            box-shadow: 2px 5px 10px #1010109b;
+            transform: translateX(-5px) translateY(-2px);
+            background: #972538a6;
+        }
     }
 }
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #ffffff;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #777777;
+
+    & hr {
+        width: 95%;
+        border: 0.5px solid #9a9a9a;
+        margin: 10px 0;
+    }
+
+    & p {
+        margin-bottom: 10px;
+    }
+
+}
+
+.footer-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    padding: 10px 0;
+
+
+    & .logo-footer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: auto;
+
+        & .img-footer {
+            width: 60px;
+            height: 60px;
+            padding-top: 10px;
+        }
+    }
+
+    & .texto-logo-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        width: auto;
+        margin: 0;
+        padding: 0px;
+        line-height: 1.1;
+        text-align: left;
+
+        & h1 {
+            font-size: 23px;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #dc3a21, #eda934);
+            display: inline-block;
+            background-clip: text;
+            color: transparent;
+            font-family: "Playfair Display", serif;
+        }
+
+        & h2 {
+            font-size: 10px;
+            color: #4c4c4c;
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+        }
+    }
+}
+
