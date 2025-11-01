@@ -114,145 +114,6 @@ nav.scrolled {
   transform: translateY(-9px) rotate(-45deg);
 }
 
-/* Menu escondido no mobile */
-@media (max-width: 768px) {
-  /* 1.1 Header: Diminuir tamanho */
-  header {
-    padding: 5px;
-  }
-  .titulo1 {
-    font-size: 24px; /* Reduzir o tamanho do título principal */
-    padding-top: 30px;
-    padding-bottom: 15px;
-  }
-  .subtitulo1 h2 {
-    padding-bottom: 15px;
-    font-size: 1.1em;
-  }
-  .subtitulo2 h3 {
-    padding-bottom: 15px;
-    font-size: 1em;
-  }
-  .botao-servicos {
-    padding-bottom: 30px;
-  }
-  .botao-servicos button {
-    font-size: 16px;
-    padding: 10px;
-  }
-
-  /* 1.3 Cards: Mesmo tamanho e um abaixo do outro */
-  .cards {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .cards .card {
-    width: 90%; /* Ocupar a maior parte da largura */
-    max-width: 400px; /* Limitar o tamanho máximo */
-    height: auto; /* Altura automática para se ajustar ao conteúdo */
-    min-height: 200px; /* Garantir uma altura mínima */
-    padding: 20px;
-    font-size: medium;
-  }
-  .cards .card h3 {
-    font-size: x-large;
-  }
-
-  /* 1.4 Sobre: Igual, apenas menor */
-  .sobre {
-    margin-top: 50px;
-  }
-  .sobre .subtitulo2 h3 {
-    font-size: 1em;
-    line-height: 1.5;
-  }
-
-  /* 1.5 Mensagem: Mesmo formato, apenas menor */
-  .mensagem {
-    padding: 20px 40px;
-    margin-top: 30px;
-  }
-  .mensagem-texto h2 {
-    font-size: 18px;
-  }
-
-  /* 1.6 Contato: Botões um abaixo do outro */
-  .fontes-contato {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    font-size: 18px;
-  }
-  .fontes-contato button {
-    width: 100%;
-    margin-left: 0 !important; /* Remover margens laterais */
-    padding: 10px 20px;
-  }
-  .fontes-contato .botao-face {
-    margin-left: 0;
-  }
-  .fontes-contato .botao-insta {
-    margin-left: 0;
-  }
-
-  /* 1.7 Footer: Tirar o menuzinho */
-  .footer-menu .menu {
-    display: none; /* Ocultar o menu no footer */
-  }
-  .footer-menu {
-    justify-content: center; /* Centralizar o logo no footer */
-  }
-
-  /* 1.2 Menu Hamburger na nav: Garantir que o menu principal seja ocultado e o toggle exibido */
-  .menu {
-    display: none; /* O menu principal deve ser escondido por padrão no mobile */
-    position: fixed;
-    top: 70px;
-    right: -100%;
-    width: 220px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-    transition: 0.3s ease;
-  }
-
-  nav .menu.open {
-    display: flex; /* Exibir quando a classe 'open' for adicionada pelo JS */
-    right: 0;
-  }
-
-  .menu-toggle {
-    display: flex; /* Exibir o ícone do hamburger */
-    margin-right: 20px;
-  }
-
-  /* Outros ajustes da nav */
-  nav {
-    padding: 0 10px;
-  }
-  nav .logo {
-    width: auto;
-  }
-  nav img {
-    width: 50px;
-    height: 50px;
-  }
-  .texto-logo {
-    padding: 10px;
-  }
-  .texto-logo h1 {
-    font-size: 20px;
-  }
-  .texto-logo h2/* As regras de responsividade para nav/menu/menu-toggle foram movidas para a media query principal (max-width: 768px) acima. */
-  mg {
-    width: 70px;
-    height: 70px;
-    padding: 0;
-}
-}
-
 img {
     width: 70px;
     height: 70px;
@@ -281,7 +142,7 @@ header {
     display: flex;
     flex-direction: column;
     text-align: center;
-    font-size: 38px;
+    font-size: 34px;
     font-family: "Playfair Display", serif;
     padding-bottom: 30px;
     padding-top: 60px;
@@ -347,6 +208,8 @@ header {
 .titulo2 {
     font-size: x-large;
     padding-top: 50px;
+    text-align: center;
+    line-height: 1.2;
 
     & h1 {
         background: linear-gradient(to right, #ff0000, #edbb25);
@@ -360,6 +223,7 @@ header {
 
 .subtitulo2 {
     padding-bottom: 10px;
+    text-align: center;
 }
 
 .cards {
@@ -384,6 +248,7 @@ header {
         font-size: large;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
+        line-height: 1.2;
 
         & h3 {
             margin-bottom: 15px;
@@ -637,3 +502,153 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+  /* 1.1 Header: Diminuir tamanho */
+body {
+    padding-top: 60px;
+}
+
+  header {
+    padding-top: 10px;
+  }
+  .titulo1 {
+    font-size: 30px; /* Reduzir o tamanho do título principal */
+    padding-top: 50px;
+    padding-bottom: 15px;
+  }
+  .subtitulo1 h2 {
+    padding-bottom: 15px;
+    font-size: 1.1em;
+  }
+  .subtitulo2 h3 {
+    padding-bottom: 15px;
+    font-size: 1em;
+  }
+  .botao-servicos {
+    padding-bottom: 50px;
+  }
+  .botao-servicos button {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .titulo2 {
+    padding-top: 10px;
+}
+  /* 1.3 Cards: Mesmo tamanho e um abaixo do outro */
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cards .card {
+    max-width: 95%; /* Ocupar a maior parte da largura */
+    height: 250px; /* Altura automática para se ajustar ao conteúdo */
+    padding: 18px;
+    font-size: medium;
+    line-height: 1.1;
+  }
+  .cards .card h3 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  /* 1.4 Sobre: Igual, apenas menor */
+  .sobre {
+    padding-top: 10px;
+  }
+  .sobre .subtitulo2 h3 {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+
+  .painel-info {
+    gap: 40px;
+    padding: 10px 10px;
+  }   
+
+  /* 1.5 Mensagem: Mesmo formato, apenas menor */
+  .mensagem {
+    padding: 10px 30px;
+    margin-top: 30px;
+  }
+  .mensagem-texto h2 {
+    font-size: 20px;
+  }
+
+  /* 1.6 Contato: Botões um abaixo do outro */
+  .fontes-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    font-size: 18px;
+  }
+  .fontes-contato button {
+    width: 100%;
+    margin-left: 0 !important; /* Remover margens laterais */
+    padding: 10px 10px;
+  }
+  .fontes-contato .botao-face {
+    margin-left: 0;
+  }
+  .fontes-contato .botao-insta {
+    margin-left: 0;
+  }
+
+  /* 1.7 Footer: Tirar o menuzinho */
+  .footer-menu .menu {
+    display: none; /* Ocultar o menu no footer */
+  }
+  .footer-menu {
+    justify-content: center; /* Centralizar o logo no footer */
+  }
+
+  /* 1.2 Menu Hamburger na nav: Garantir que o menu principal seja ocultado e o toggle exibido */
+  .menu {
+    display: none; /* O menu principal deve ser escondido por padrão no mobile */
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 220px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    transition: 0.3s ease;
+  }
+
+  nav .menu.open {
+    display: flex; /* Exibir quando a classe 'open' for adicionada pelo JS */
+    right: 0;
+  }
+
+  .menu-toggle {
+    display: flex; /* Exibir o ícone do hamburger */
+    margin-top: 19px;
+    margin-right: 20px;
+  }
+
+  /* Outros ajustes da nav */
+  nav {
+    padding: 0 10px;
+  }
+  nav .logo {
+    width: auto;
+  }
+  nav img {
+    width: 50px;
+    height: 50px;
+  }
+  .texto-logo {
+    padding: 10px;
+  }
+  .texto-logo h1 {
+    font-size: 20px;
+  }
+  .texto-logo h2
+  mg {
+    width: 70px;
+    height: 70px;
+    padding: 0;
+}
+}
