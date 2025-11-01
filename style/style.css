@@ -8,7 +8,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #fff0f0;
+    background-color: #fff7f7;
     color: #333;
     line-height: 1.6;
     padding-top: 80px;
@@ -280,11 +280,6 @@ header {
             color: #fff;
             margin-bottom: 15px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-            & :hover {
-                transform: scale(1.1);
-                box-shadow: 0 4px 12px rgba(255, 80, 0, 0.5);
-            }
         }
     }
 }
@@ -301,7 +296,7 @@ header {
     flex-direction: row;
     gap: 120px;
     padding: 20px 20px;
-    background: #fff5f0; /* cor de fundo leve */
+    background: #fff7f7; /* cor de fundo leve */
     text-align: center;
     flex-wrap: wrap; /* responsivo */
 }
@@ -312,6 +307,10 @@ header {
     align-items: center;
     max-width: 250px;
     transition: transform 0.3s ease;
+
+    &:hover {
+            transform: translateY(-10px);
+        }
 
     & .icone {
         width: 70px;
@@ -327,10 +326,11 @@ header {
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         &:hover {
-            transform: scale(1.15);
-            box-shadow: 0 6px 15px rgba(255, 69, 0, 0.4);
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(255, 69, 0, 0.4);
         }
     }
+    
 
     & h3 {
         font-family: "Playfair Display", serif;
@@ -338,6 +338,7 @@ header {
         color: #2e2e2e;
         font-weight: bold;
         margin-bottom: 8px;
+        
     }
 
     & p {
